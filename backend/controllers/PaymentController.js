@@ -31,9 +31,7 @@ const createPaymentSession = async (req, res) => {
     });
     await order.save();
 
-
-
-    // Create Stripe session 
+    // Create Stripe session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       customer_email: email,
@@ -49,17 +47,16 @@ const createPaymentSession = async (req, res) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:5173/failed`,
+      success_url: `https://magnet-brain-2ndassgnment.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://magnet-brain-2ndassgnment.onrender.com/failed`,
       metadata: {
         orderId: order._id.toString(),
         email: email,
       },
       billing_address_collection: "auto",
       locale: "en",
-      expires_at: Math.floor(Date.now() / 1000) + 30 * 60, 
+      expires_at: Math.floor(Date.now() / 1000) + 30 * 60,
     });
-
 
     // Update order with Stripe session ID
     order.stripeSessionId = session.id;
@@ -76,8 +73,6 @@ const createPaymentSession = async (req, res) => {
     });
   }
 };
-
-
 
 //HANDLE WEBHOOK
 const handleWebhook = async (req, res) => {
@@ -103,7 +98,7 @@ const handleWebhook = async (req, res) => {
         },
         { new: true }
       );
-        console.log("Order updated to success:", updatedOrder);
+      console.log("Order updated to success:", updatedOrder);
     } catch (error) {
       console.error("Error updating order:", error);
     }
@@ -125,13 +120,11 @@ const handleWebhook = async (req, res) => {
   res.json({ received: true });
 };
 
-
-
 //checkpaymentstatus
 const checkPaymentStatus = async (req, res) => {
   try {
     const { sessionId } = req.params;
-  
+
     const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     let order = await Order.findOne({ stripeSessionId: sessionId });
@@ -139,9 +132,7 @@ const checkPaymentStatus = async (req, res) => {
       return res.status(404).json({ error: "Order not found" });
     }
 
-
-
-    // Update order status 
+    // Update order status
     if (session.payment_status === "paid" && order.status !== "success") {
       const updatedOrder = await Order.findByIdAndUpdate(
         order._id,
@@ -173,8 +164,6 @@ const checkPaymentStatus = async (req, res) => {
     });
   }
 };
-
-
 
 //GETORDERSTATUS
 const getOrderStatus = async (req, res) => {

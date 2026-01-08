@@ -3,7 +3,7 @@ import CartIcon from "../components/CartIcon";
 
 function Home() {
   return (
-    <div style={{ padding: "30px", maxWidth: "1100px", margin: "auto" }}>
+    <div style={{ padding: "30px", maxWidth: "1100px", margin: "auto", backgroundColor: "#f9f9f9" }}>
       <header
         style={{
           display: "flex",
