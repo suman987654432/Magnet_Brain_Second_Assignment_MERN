@@ -2,7 +2,7 @@
 
 A full-stack e-commerce application built with React.js frontend and Node.js backend, featuring product catalog, shopping cart functionality, and **Stripe payment integration** for secure online transactions.
 
-## 🚀 Live Demo
+##  Live Demo
 
 [Live Demo](https://magnet-brain-2nd-assgnment.vercel.app/)
 
@@ -24,7 +24,7 @@ A full-stack e-commerce application built with React.js frontend and Node.js bac
 - **Stripe** - Payment Processing
 - **JavaScript** - Programming Language
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 d:\Task\
@@ -50,18 +50,18 @@ d:\Task\
 └── README.md              # Project documentation
 ```
 
-## ✨ Features
+##  Features
 
-- 🛍️ Product catalog display
-- 🛒 Shopping cart functionality
-- 💳 **Stripe payment integration** - Secure checkout process
-- 🔒 **Payment webhooks** - Real-time payment status updates
-- 📊 **Order tracking** - Check payment and order status
-- 📱 Responsive design
-- 🎨 Modern and attractive UI
-- ⚡ Fast and optimized performance
+-  Product catalog display
+-  Shopping cart functionality
+-  **Stripe payment integration** - Secure checkout process
+-  **Payment webhooks** - Real-time payment status updates
+-  **Order tracking** - Check payment and order status
+-  Responsive design
+-  Modern and attractive UI
+-  Fast and optimized performance
 
-## 🚀 How to Run the Project
+##  How to Run the Project
 
 ### Prerequisites
 
@@ -105,7 +105,7 @@ d:\Task\
    # Frontend runs on http://localhost:3000
    ```
 
-## 💳 Payment Integration
+##  Payment Integration
 
 This application uses **Stripe** for secure payment processing:
 
