@@ -2,9 +2,6 @@
 
 A full-stack e-commerce application built with React.js frontend and Node.js backend, featuring product catalog, shopping cart functionality, and **Stripe payment integration** for secure online transactions.
 
-##  Live Demo
-
-[Live Demo](https://magnet-brain-2nd-assgnment.vercel.app/)
 
 ## 🛠️ Tech Stack
 
